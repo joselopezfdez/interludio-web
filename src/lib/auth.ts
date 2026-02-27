@@ -16,6 +16,9 @@ export const auth = betterAuth({
     database: drizzleAdapter(db, {
         provider: "mysql",
     }),
+    emailVerification: {
+        autoSignInAfterVerification: true
+    },
     user: {
         additionalFields: {
             isAdmin: {

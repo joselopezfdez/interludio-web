@@ -45,14 +45,8 @@ export default function AuthModal({ isOpen, onClose, onRegisterSuccess }) {
                 }, {
                     onSuccess: async () => {
                         // After sign up, prompt to send OTP code
-                        try {
-                            await authClient.emailOtp.sendVerificationOtp({
-                                email,
-                                type: "email-verification"
-                            });
-                        } catch (otpErr) {
-                            console.error("Failed to send initial OTP:", otpErr);
-                        }
+                        // Verification OTP is sent automatically by the plugin.
+                        // Removing the explicit call to fix double emails.
                         onClose();
                         if (onRegisterSuccess) {
                             onRegisterSuccess(email);
