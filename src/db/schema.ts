@@ -68,3 +68,15 @@ export const courseChapter = mysqlTable("course_chapter", {
     createdAt: timestamp("created_at").notNull(),
     updatedAt: timestamp("updated_at").notNull(),
 });
+
+export const booking = mysqlTable("booking", {
+    id: varchar("id", { length: 36 }).primaryKey(),
+    name: text("name").notNull(),
+    email: varchar("email", { length: 255 }).notNull(),
+    phone: varchar("phone", { length: 20 }),
+    details: longtext("details"),
+    startTime: timestamp("start_time").notNull(),
+    endTime: timestamp("end_time").notNull(),
+    createdAt: timestamp("created_at").notNull(),
+    updatedAt: timestamp("updated_at").notNull(),
+});

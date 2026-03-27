@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Reveal } from '@/components/animations/Reveal';
+import BookingCalendar from '@/components/BookingCalendar';
 
 export default function ReservarPage() {
     return (
@@ -18,21 +19,15 @@ export default function ReservarPage() {
                                 RESERVA TU <span className="text-brand-primary italic uppercase">SITIO.</span>
                             </h1>
                             <p className="opacity-90 max-w-lg text-sm md:text-base font-bold text-white/90">
-                                Selecciona el tipo de sesión y el horario que mejor se adapte a tu proyecto. 
+                                Selecciona el tipo de sesión y el horario que mejor se adapte a tu proyecto.
                                 Recibirás una confirmación automática en tu email.
                             </p>
                         </div>
                     </Reveal>
 
                     <Reveal delay={0.2}>
-                        <div className=" border border-brand-primary/10 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl relative">
-                            {/* Calendario Directo (Ajustado a 680px para evitar espacios vacíos) */}
-                            <iframe
-                                src="https://cal.com/interludio-p6dks1/reserva-tu-sesion?embed=true&theme=light"
-                                style={{ width: "100%", height: "680px", border: "none" }}
-                                title="Reserva Cal.com"
-                                className="bg-transparent"
-                            ></iframe>
+                        <div className="mb-20">
+                            <BookingCalendar />
                         </div>
                     </Reveal>
                 </div>
