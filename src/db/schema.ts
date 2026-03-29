@@ -80,3 +80,24 @@ export const booking = mysqlTable("booking", {
     createdAt: timestamp("created_at").notNull(),
     updatedAt: timestamp("updated_at").notNull(),
 });
+
+export const presets = mysqlTable("presets", {
+    id: varchar("id", { length: 36 }).primaryKey(),
+    name: text("name").notNull(),
+    description: longtext("description"),
+    price: int("price").notNull(), // Precio en céntimos (ej: 1999 = 19.99€)
+    image: text("image"),
+    filePath: text("file_path").notNull(),
+    category: varchar("category", { length: 50 }),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+    updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+export const presetPurchases = mysqlTable("preset_purchases", {
+    id: varchar("id", { length: 36 }).primaryKey(),
+    userId: varchar("user_id", { length: 36 }).notNull().references(() => user.id),
+    presetId: varchar("preset_id", { length: 36 }).notNull().references(() => presets.id),
+    stripeSessionId: text("stripe_session_id").notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+

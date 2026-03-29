@@ -100,9 +100,11 @@ export default function Navbar() {
 
                         {/* Desktop Menu */}
                         <div className="hidden md:flex items-center gap-8">
-                            <a href="#services" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap">SERVICIOS</a>
-                            <Link href="/estudio" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap">ESTUDIO</Link>
-                            <Link href="/reservar" className="bg-brand-primary text-white px-6 py-2 rounded-md text-sm font-bold hover:bg-brand-secondary transition-colors shadow-lg shadow-brand-primary/20 whitespace-nowrap">
+                            <a href="#services" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap uppercase">SERVICIOS</a>
+                            <Link href="/estudio" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap uppercase">ESTUDIO</Link>
+                            <Link href="/presets" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap uppercase">PRESETS</Link>
+                            <Link href="/reservar" className="bg-brand-primary text-white px-6 py-2 rounded-md text-sm font-bold hover:bg-brand-secondary transition-colors shadow-lg shadow-brand-primary/20 whitespace-nowrap uppercase">
+
                                 RESERVAR
                             </Link>
 
@@ -193,9 +195,11 @@ export default function Navbar() {
                     {/* Mobile Dropdown Menu */}
                     <div className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out fixed left-0 right-0 top-full bg-[#5a1a3b]/95 backdrop-blur-2xl border-b border-white/10 ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
                         <div className="flex flex-col gap-4 p-8 border-t border-white/5">
-                            <Link href="/#services" onClick={() => setIsOpen(false)} className="text-sm font-bold text-center text-white hover:text-brand-primary transition-colors py-2">SERVICIOS</Link>
-                            <Link href="/estudio" onClick={() => setIsOpen(false)} className="text-sm font-bold text-center text-white hover:text-brand-primary transition-colors py-2">ESTUDIO</Link>
+                            <Link href="/#services" onClick={() => setIsOpen(false)} className="text-sm font-bold text-center text-white hover:text-brand-primary transition-colors py-2 uppercase">SERVICIOS</Link>
+                            <Link href="/estudio" onClick={() => setIsOpen(false)} className="text-sm font-bold text-center text-white hover:text-brand-primary transition-colors py-2 uppercase">ESTUDIO</Link>
+                            <Link href="/presets" onClick={() => setIsOpen(false)} className="text-sm font-bold text-center text-white hover:text-brand-primary transition-colors py-2 uppercase">PRESETS</Link>
                             <div className="flex flex-col gap-3 mt-2 px-4">
+
                                 <Link href="/reservar" onClick={() => setIsOpen(false)} className="bg-brand-primary text-white px-6 py-3 rounded-md text-sm font-bold shadow-lg shadow-brand-primary/20 w-full text-center">
                                     RESERVAR
                                 </Link>
