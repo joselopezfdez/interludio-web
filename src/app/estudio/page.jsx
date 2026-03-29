@@ -146,7 +146,7 @@ export default function EstudioPage() {
             </section>
 
             {/* Presentation Section */}
-            <section className="py-24 bg-white/5 backdrop-blur-sm border-y border-white/5">
+            <section className="py-24">
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                         <Reveal>

@@ -1,47 +1,92 @@
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import Services from '@/components/Services';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
-import Carousel from '@/components/Carousel';
-import { Reveal } from '@/components/animations/Reveal';
+'use client';
 
+import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import SciFiLoader from '@/components/SciFiLoader';
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-transparent selection:bg-brand-primary selection:text-white">
-      <Navbar />
-      <Hero />
-      <Services />
-      
-      <section className="py-24 bg-transparent">
-        <div className="container mx-auto px-6">
-          <Reveal>
-            <div className="mb-16">
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4">
-                THE <span className="text-brand-secondary italic">STUDIO</span> GALLERY
-              </h2>
-              <p className="opacity-60 max-w-lg">
-                Explora nuestro estudio de grabación en Madrid. Diseñado para la máxima experiencia creativa.
-              </p>
-            </div>
-          </Reveal>
-          
-          <Reveal delay={0.2}>
-            <Carousel 
-              images={[
-                "/studio1.jpg",
-                "/studio2.jpg",
-                "/studio3.jpg"
-              ]} 
-              autoSlideInterval={6000}
-            />
-          </Reveal>
-        </div>
-      </section>
+  const [loading, setLoading] = useState(false);
+  const [targetPath, setTargetPath] = useState('');
+  const router = useRouter();
 
-      <Contact />
-      <Footer />
+  const handleNavigation = (e, path) => {
+    e.preventDefault();
+    setTargetPath(path);
+    setLoading(true);
+  };
+
+  const handleLoadComplete = () => {
+    router.push(targetPath);
+  };
+
+  return (
+    <main className="relative min-h-screen w-full flex flex-col items-center justify-end pb-16 md:pb-24 overflow-hidden bg-black">
+      {loading && <SciFiLoader onComplete={handleLoadComplete} />}
+      
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="w-full h-full object-cover opacity-80"
+        >
+          <source src="/capsulas.mp4" type="video/mp4" />
+        </video>
+        {/* Subtle Sci-fi overlay effects */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_90%)] opacity-40" />
+      </div>
+
+      {/* Sci-fi Bottom Content */}
+      <div className="relative z-10 w-full px-6 md:px-20 max-w-7xl mb-12">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-[15vw]">
+          <Link 
+            href="/estudio" 
+            onClick={(e) => handleNavigation(e, '/estudio')}
+            className="group relative flex flex-col items-center"
+          >
+            <div className="absolute -top-4 w-8 h-[1px] bg-brand-primary opacity-0 group-hover:opacity-100 group-hover:scale-x-150 transition-all duration-500 shadow-[0_0_15px_#994a70]" />
+            <span className="text-xl md:text-2xl font-black tracking-[0.3em] text-white group-hover:text-brand-primary transition-all duration-500 uppercase drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_15px_#994a70]">
+              ESTUDIO
+            </span>
+            <span className="mt-2 text-[8px] font-bold text-white/20 tracking-[0.5em] group-hover:text-brand-primary/40 transition-colors uppercase">Data.Link_01</span>
+          </Link>
+
+          <Link 
+            href="/servicios" 
+            onClick={(e) => handleNavigation(e, '/servicios')}
+            className="group relative flex flex-col items-center"
+          >
+            <div className="absolute -top-4 w-8 h-[1px] bg-brand-primary opacity-0 group-hover:opacity-100 group-hover:scale-x-150 transition-all duration-500 shadow-[0_0_15px_#994a70]" />
+            <span className="text-xl md:text-2xl font-black tracking-[0.3em] text-white group-hover:text-brand-primary transition-all duration-500 uppercase drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_15px_#994a70]">
+              SERVICIOS
+            </span>
+            <span className="mt-2 text-[8px] font-bold text-white/20 tracking-[0.5em] group-hover:text-brand-primary/40 transition-colors uppercase">Core.Access_02</span>
+          </Link>
+
+          <Link 
+            href="/presets" 
+            onClick={(e) => handleNavigation(e, '/presets')}
+            className="group relative flex flex-col items-center"
+          >
+            <div className="absolute -top-4 w-8 h-[1px] bg-brand-primary opacity-0 group-hover:opacity-100 group-hover:scale-x-150 transition-all duration-500 shadow-[0_0_15px_#994a70]" />
+            <span className="text-xl md:text-2xl font-black tracking-[0.3em] text-white group-hover:text-brand-primary transition-all duration-500 uppercase drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_15px_#994a70]">
+              PRESETS
+            </span>
+            <span className="mt-2 text-[8px] font-bold text-white/20 tracking-[0.5em] group-hover:text-brand-primary/40 transition-colors uppercase">Asset.Store_03</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* Floating Logo - Scientific Aesthetic */}
+      <div className="absolute top-12 left-12 z-20">
+        <Link href="/" className="block group">
+          <img src="/interludiologo.png" alt="Logo" className="h-20 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity" />
+        </Link>
+      </div>
     </main>
   );
 }

@@ -9,8 +9,8 @@ export default function Footer() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-20 text-studio-text text-center sm:text-left">
 
                     <div className="space-y-6 flex flex-col items-center sm:items-start">
-                        <div className="flex items-center gap-3 bg-brand-primary/10 p-2 rounded-md w-fit">
-                            <span className="font-black text-xl tracking-tighter uppercase text-brand-primary">INTERLUDIO.</span>
+                        <div className="flex items-center gap-3 bg-transparent rounded-md w-fit">
+                            <img src="/interludiologo.png" alt="Interludio Logo" className="h-10 w-auto object-contain" />
                         </div>
                         <p className="text-sm opacity-80 leading-relaxed font-bold max-w-xs text-white">
                             Tu sonido, nuestra pasión. Expertos en producción musical y mezcla.
@@ -28,7 +28,7 @@ export default function Footer() {
                     <div>
                         <h4 className="text-[10px] font-black uppercase opacity-60 tracking-[.4em] mb-6 md:mb-10 text-brand-primary">EXPLORA</h4>
                         <ul className="space-y-3 md:space-y-4">
-                            <li><Link href="/#services" className="text-sm font-bold opacity-80 hover:text-brand-primary transition-colors text-white">Servicios</Link></li>
+                            <li><Link href="/servicios" className="text-sm font-bold opacity-80 hover:text-brand-primary transition-colors text-white">Servicios</Link></li>
                             <li><Link href="/estudio" className="text-sm font-bold opacity-80 hover:text-brand-primary transition-colors text-white">Academia</Link></li>
                             <li><Link href="/reservar" className="text-sm font-bold opacity-80 hover:text-brand-primary transition-colors text-white">Reservar Cita</Link></li>
                             <li><Link href="/#contact" className="text-sm font-bold opacity-80 hover:text-brand-primary transition-colors text-white">Contacto</Link></li>

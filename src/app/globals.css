@@ -22,7 +22,7 @@ html {
 
 body {
   font-family: 'Cascadia Code', sans-serif;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(12, 12, 12, 0.7) 100%), url('/bgimage.jpg');
+  background-color: black;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -41,7 +41,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--color-brand-primary);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -124,4 +124,50 @@ body {
 
 .animate-zoom-in {
   animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.animate-scanline {
+  animation: scanline 4s linear infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    filter: brightness(2);
+  }
+}
+
+.animate-glow {
+  animation: glow 1s ease-in-out infinite;
 }

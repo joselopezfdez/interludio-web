@@ -88,19 +88,19 @@ export default function Navbar() {
             )}
 
             <nav className={`fixed left-0 right-0 z-50  backdrop-blur-md shadow-sm border-b border-brand-primary/5 transition-all duration-300 ${needsVerification ? 'top-[44px] md:top-[44px]' : 'top-0'}`}>
-                <div className="container mx-auto px-6 py-4">
+                <div className="container mx-auto px-6">
                     <div className="relative flex items-center justify-between">
                         {/* Placeholder for left on mobile to help center logo */}
                         <div className="w-10 md:hidden" />
 
                         {/* Logo */}
-                        <Link href="/" className="flex items-center justify-center gap-2 bg-brand-primary/10 p-2 rounded-md transition-transform hover:scale-105">
-                            <span className="font-black text-xl tracking-tighter text-white">INTERLUDIO.</span>
+                        <Link href="/" className="flex items-center justify-center gap-2 bg-transparent transition-transform hover:scale-105">
+                            <img src="/interludiologo.png" alt="Interludio Logo" className="h-8 md:h-18 w-auto object-contain" />
                         </Link>
 
                         {/* Desktop Menu */}
                         <div className="hidden md:flex items-center gap-8">
-                            <a href="#services" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap uppercase">SERVICIOS</a>
+                            <Link href="/servicios" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap uppercase">SERVICIOS</Link>
                             <Link href="/estudio" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap uppercase">ESTUDIO</Link>
                             <Link href="/presets" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity whitespace-nowrap uppercase">PRESETS</Link>
                             <Link href="/reservar" className="bg-brand-primary text-white px-6 py-2 rounded-md text-sm font-bold hover:bg-brand-secondary transition-colors shadow-lg shadow-brand-primary/20 whitespace-nowrap uppercase">
@@ -195,7 +195,7 @@ export default function Navbar() {
                     {/* Mobile Dropdown Menu */}
                     <div className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out fixed left-0 right-0 top-full bg-[#5a1a3b]/95 backdrop-blur-2xl border-b border-white/10 ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
                         <div className="flex flex-col gap-4 p-8 border-t border-white/5">
-                            <Link href="/#services" onClick={() => setIsOpen(false)} className="text-sm font-bold text-center text-white hover:text-brand-primary transition-colors py-2 uppercase">SERVICIOS</Link>
+                            <Link href="/servicios" onClick={() => setIsOpen(false)} className="text-sm font-bold text-center text-white hover:text-brand-primary transition-colors py-2 uppercase">SERVICIOS</Link>
                             <Link href="/estudio" onClick={() => setIsOpen(false)} className="text-sm font-bold text-center text-white hover:text-brand-primary transition-colors py-2 uppercase">ESTUDIO</Link>
                             <Link href="/presets" onClick={() => setIsOpen(false)} className="text-sm font-bold text-center text-white hover:text-brand-primary transition-colors py-2 uppercase">PRESETS</Link>
                             <div className="flex flex-col gap-3 mt-2 px-4">
